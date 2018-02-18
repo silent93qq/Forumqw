@@ -30,18 +30,18 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        $threadsUser = auth()->user()->threads()->get();
+        return view('profile',['threadsUser'=>$threadsUser],array('user' => Auth::user()));
     }
 
-
-
-    public function profile(Request $request)
-    {
-        return view('profile', array('user' => Auth::user()));
-    }
+//    public function profile(Request $request)
+//    {
+//        return view('profile', );
+//    }
 
     public function update_profile(Request $request)
     {
+        $threadsUser = auth()->user()->threads()->get();
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
@@ -50,6 +50,8 @@ class UserController extends Controller
             $user->avatar = $filename;
             $user->save();
         }
-        return view('profile', array('user' => Auth::user()));
+        return view('profile', array('user' => Auth::user()),['threadsUser'=>$threadsUser]);
     }
+
+
 }

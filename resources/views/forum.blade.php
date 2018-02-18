@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <h2>
-        Threads
-    </h2>
 
+    @include('layouts.create')
+    <br>
+    <br>
     @include('layouts.list-group')
 
 @endsection

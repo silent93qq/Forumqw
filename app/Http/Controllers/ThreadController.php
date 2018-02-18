@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Comment;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\NameRequest;
 
 class ThreadController extends Controller
 {
@@ -38,14 +40,9 @@ class ThreadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NameRequest $request)
     {
-        $this->validate($request,[
-            'subject'=>'required',
-            'type'=>'required',
-            'thread'=>'required'
 
-        ]);
     //store
         $thread=new Thread();
         $thread->subject=$request->subject;
@@ -53,8 +50,6 @@ class ThreadController extends Controller
         $thread->thread = $request->thread;
         $thread->user_id = auth()->user()->id;
         $thread->save();
-
-
         //redirect
         return back()->withMessage('thread created');
     }

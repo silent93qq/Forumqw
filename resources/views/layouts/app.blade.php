@@ -18,33 +18,15 @@
 <body>
 @include('layouts.navbar')
 
-<div class="container">
 
+<div class="col-md-9">
+    <div class="content-wrap-well">
 
-    <div class="row">
-        <div class="row content-heading"></div>
-        <div class="col-md-3"><h4>Category</h4>
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-4"><h4 class="main-content-heading">@yield('heading')</h4>
-                    </div>
-                    <div class="col-md-offset-8 col-md-2">
-                        <a class="btn btn-primary" href="{{route('thread.create')}}">Create Thread</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <br>
+        <br>
+        @yield('content')
+
     </div>
-
-
-    <div class="col-md-9">
-        <div class="content-wrap-well">
-
-
-            @yield('content')
-        </div>
-    </div>
-
 </div>
 
 <!-- Scripts -->

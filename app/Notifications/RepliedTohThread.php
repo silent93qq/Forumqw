@@ -59,4 +59,5 @@ class RepliedTohThread extends Notification
             //
         ];
     }
+
 }
