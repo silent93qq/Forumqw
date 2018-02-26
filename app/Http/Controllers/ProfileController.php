@@ -36,7 +36,7 @@ class ProfileController extends Controller
     /**
      * @return mixed
      */
-    public function ResetPassword(){
+    public function resetPassword(){
 
         $User = User::find(Auth::user()->id);
         if (Hash::check(Input::get('passwordold'), $User['password']) && Input::get('password') == Input::get('password_confirmation')){

@@ -40,4 +40,4 @@ Route::post('comment/like','LikeController@toggleLike')->name('toggleLike');
 
 Route::get('/thread/{id}', ['as' => 'thread.show', 'uses' => 'ThreadController@show']);
 
-Route::post('/thread/notif/{thread}','NotificationMailController@store')->name('notific');
+Route::post('/thread/notif/{thread}','NotificationMailController@storeNotification')->name('notific');
