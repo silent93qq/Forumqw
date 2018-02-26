@@ -12,13 +12,13 @@
                     <form action="{{route('notific',$thread->id)}}" method="post" role="form">
                         {{csrf_field()}}
 
-                       @foreach($notifs as $not)
-                            @if($not->thread_id==$thread->id && $not->user_id==auth()->user()->id)
-                                <input type="submit" class="btn btn-success pull-right"  value="Remove notific">
-                        @else
+                       {{--@foreach($notifs as $not)--}}
+                            {{--@if($not->thread_id==$thread->id && $not->user_id==auth()->user()->id)--}}
+                                {{--<input type="submit" class="btn btn-success pull-right"  value="Remove notific">--}}
+                        {{--@else--}}
                                 <input type="submit" class="btn btn-success pull-right"  value="Notification">
-                            @endif
-                        @endforeach
+                            {{--@endif--}}
+                        {{--@endforeach--}}
 
                     </form>
                     @endif
