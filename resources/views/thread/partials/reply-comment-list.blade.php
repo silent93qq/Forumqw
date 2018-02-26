@@ -20,6 +20,7 @@
         </div>
         <br>
         <br>
+
         {{--Reply--}}
         @foreach($comment->comments as $reply)
             <div class="small well text-info reply-list" style="margin-left: 40px">

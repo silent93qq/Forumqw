@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Http\Requests\CommentRequest;
+use App\NotificationMail;
 use App\Notifications\RepliedTohThread;
 use App\Thread;
 use Illuminate\Http\Request;
@@ -20,7 +21,14 @@ class CommentController extends Controller
 
         $threads = new Thread();
 
-//        auth()->user()->notify(new RepliedTohThread());
+
+        $notifics=NotificationMail::all();
+
+        foreach ($notifics as $not) {
+            if($not->thread_id==$thread->id && $not->user_id==auth()->user()->id){
+                auth()->user()->notify(new RepliedTohThread());
+            }
+        }
         
         $thread->comments()->save($comment);
 

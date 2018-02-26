@@ -1,5 +1,5 @@
 <div class="comment-form">
-
+    @if(auth()->check())
     <form action="{{route('threadcomment.store',$thread->id)}}" method="post" role="form">
         {{csrf_field()}}
         <legend>Create comment</legend>
@@ -8,5 +8,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Comment</button>
     </form>
-
+@endif
 </div>

@@ -39,7 +39,7 @@ class UserController extends Controller
 //        return view('profile', );
 //    }
 
-    public function update_profile(Request $request)
+    public function UpdateProfile(Request $request)
     {
         $threadsUser = auth()->user()->threads()->get();
         if ($request->hasFile('avatar')) {

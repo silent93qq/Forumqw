@@ -18,6 +18,7 @@ class CreateThreadsTable extends Migration
             $table->string('subject');
             $table->string('thread');
             $table->integer('user_id');
+            $table->integer('notification');
             $table->string('type')->nullable();
             $table->timestamps();
         });

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Thread extends Model
 {
    protected $guarded=[];
-    protected $fillable=['subject','type','thread','user_id'];
+    protected $fillable=['subject','type','thread','user_id','notification'];
 
 
     public function user(){
@@ -20,4 +20,6 @@ class Thread extends Model
         return $this->morphMany(Comment::class,'commentable');
 
     }
+
+
 }

@@ -16,12 +16,14 @@ use App\User;
 
 Route::get('/', function () {
     $threads=App\Thread::paginate(15);
-    return view('forum',compact('threads'));
+    $notifs=App\NotificationMail::paginate(15);
+    return view('forum',compact('threads'),compact('notifs'));
 });
+
 Auth::routes();
 
 Route::get('/profile', 'UserController@index')->name('profile');
-Route::post('/profile', 'UserController@update_profile');
+Route::post('/profile', 'UserController@UpdateProfile');
 
 
 Route::get('/changepassword','ProfileController@index');
@@ -37,3 +39,5 @@ Route::post('reply/create/{comment}','CommentController@addReplyComment')->name(
 Route::post('comment/like','LikeController@toggleLike')->name('toggleLike');
 
 Route::get('/thread/{id}', ['as' => 'thread.show', 'uses' => 'ThreadController@show']);
+
+Route::post('/thread/notif/{thread}','NotificationMailController@store')->name('notific');
